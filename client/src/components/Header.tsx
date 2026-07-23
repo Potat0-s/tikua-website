@@ -49,7 +49,10 @@ export default function Header() {
 
         {/* CTA Button */}
         <div className="hidden md:block">
-          <Button className="bg-primary hover:bg-primary/90 text-primary-foreground">
+          <Button 
+            onClick={() => handleNavClick("products-section")}
+            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+          >
             Comprar Ahora
           </Button>
         </div>
@@ -77,7 +80,10 @@ export default function Header() {
                 {item.label}
               </button>
             ))}
-            <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
+            <Button 
+              onClick={() => handleNavClick("products-section")}
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+            >
               Comprar Ahora
             </Button>
           </div>
