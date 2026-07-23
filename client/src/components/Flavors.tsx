@@ -4,34 +4,34 @@ import { Leaf, Zap, Droplets } from "lucide-react";
 export default function Flavors() {
   const flavors = [
     {
-      name: "Limón & Menta",
-      subtitle: "Fresco y Revitalizante",
+      name: "Cacao",
+      subtitle: "Rico y Reconfortante",
       description:
-        "Una combinación clásica que refresca y energiza. Limón natural con menta pura para una experiencia refrescante sin igual.",
-      color: "#0891b2",
-      icon: <Leaf className="w-5 h-5" style={{ color: "#0891b2" }} />,
-      image: "/manus-storage/tikua_limon_menta_nature.png",
-      benefits: ["Energía", "Digestión", "Frescura"],
+        "Cacao puro y natural con un toque de elegancia. Una experiencia de hidratación sofisticada con beneficios antioxidantes.",
+      color: "#8B4513",
+      icon: <Leaf className="w-5 h-5" style={{ color: "#8B4513" }} />,
+      image: "/manus-storage/tikua_cacao_aa9e9382.png",
+      benefits: ["Antioxidantes", "Energía", "Bienestar"],
     },
     {
-      name: "Frutos Rojos",
-      subtitle: "Antioxidantes Naturales",
+      name: "Guanábana",
+      subtitle: "Tropical y Suave",
       description:
-        "Fresas, frambuesas y arándanos en una mezcla vibrante. Rico en antioxidantes y vitaminas para tu bienestar diario.",
-      color: "#ec4899",
-      icon: <Zap className="w-5 h-5" style={{ color: "#ec4899" }} />,
-      image: "/manus-storage/tikua_frutos_rojos.png",
-      benefits: ["Antioxidantes", "Vitaminas", "Vitalidad"],
+        "Guanábana cremosa y exótica. Rica en vitamina C y fibra natural para una hidratación nutritiva y deliciosa.",
+      color: "#22c55e",
+      icon: <Zap className="w-5 h-5" style={{ color: "#22c55e" }} />,
+      image: "/manus-storage/tikua_guanabana_e3380d0c.png",
+      benefits: ["Vitamina C", "Fibra", "Tropical"],
     },
     {
-      name: "Piña & Maracuyá",
-      subtitle: "Tropical y Exótico",
+      name: "Carambola",
+      subtitle: "Exótica y Refrescante",
       description:
-        "Sabores tropicales que transportan tus sentidos. Piña dulce con maracuyá ácida para un equilibrio perfecto.",
-      color: "#f59e0b",
-      icon: <Droplets className="w-5 h-5" style={{ color: "#f59e0b" }} />,
-      image: "/manus-storage/tikua_pina_maracuya.png",
-      benefits: ["Tropical", "Enzimas", "Refrescante"],
+        "Carambola con su forma de estrella y sabor único. Una experiencia tropical que refresca y energiza tu día.",
+      color: "#a855f7",
+      icon: <Droplets className="w-5 h-5" style={{ color: "#a855f7" }} />,
+      image: "/manus-storage/tikua_carambola_1bb3f843.png",
+      benefits: ["Refrescante", "Exótica", "Energía"],
     },
   ];
 
