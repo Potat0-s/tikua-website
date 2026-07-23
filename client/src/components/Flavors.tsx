@@ -4,14 +4,14 @@ import { Leaf, Zap, Droplets } from "lucide-react";
 export default function Flavors() {
   const flavors = [
     {
-      name: "Cacao",
-      subtitle: "Rico y Reconfortante",
+      name: "Cas",
+      subtitle: "Endémica de Costa Rica",
       description:
-        "Cacao puro y natural con un toque de elegancia. Una experiencia de hidratación sofisticada con beneficios antioxidantes.",
-      color: "#8B4513",
-      icon: <Leaf className="w-5 h-5" style={{ color: "#8B4513" }} />,
-      image: "/manus-storage/tikua_cacao_aa9e9382.png",
-      benefits: ["Antioxidantes", "Energía", "Bienestar"],
+        "Cas, la fruta endémica de Costa Rica con sabor único y refrescante. Rica en vitamina C y antioxidantes naturales para tu bienestar diario.",
+      color: "#F59E0B",
+      icon: <Leaf className="w-5 h-5" style={{ color: "#F59E0B" }} />,
+      image: "/manus-storage/tikua_cas_ba459fb8.png",
+      benefits: ["Vitamina C", "Antioxidantes", "Costarricense"],
     },
     {
       name: "Guanábana",
