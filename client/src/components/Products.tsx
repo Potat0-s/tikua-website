@@ -19,7 +19,7 @@ export default function Products() {
         "Fruta endémica de Costa Rica con sabor único y refrescante. Rica en vitamina C y antioxidantes naturales.",
       color: "#FF6B35",
       label: "/manus-storage/tikua_label_cas_vibrant_0f5b48fb.png",
-      bottle: "/manus-storage/tikua_bottle_cas_single_526894c4.png",
+      bottle: "/manus-storage/tikua_bottle_cas_correct_d46065cf.png",
       price: "₡2,500",
     },
     {
@@ -29,7 +29,7 @@ export default function Products() {
         "Cremosa y exótica. Rica en vitamina C y fibra natural para una hidratación nutritiva y deliciosa.",
       color: "#E91E63",
       label: "/manus-storage/tikua_label_guanabana_vibrant_84a0d915.png",
-      bottle: "/manus-storage/tikua_bottle_guanabana_single_d3162f5c.png",
+      bottle: "/manus-storage/tikua_bottle_guanabana_correct_da991001.png",
       price: "₡2,500",
     },
     {
@@ -39,7 +39,7 @@ export default function Products() {
         "Con su forma de estrella y sabor único. Una experiencia tropical que refresca y energiza tu día.",
       color: "#9C27B0",
       label: "/manus-storage/tikua_label_carambola_7ac6e036.png",
-      bottle: "/manus-storage/tikua_bottle_carambola_single_938f960a.png",
+      bottle: "/manus-storage/tikua_bottle_carambola_correct_98bac8d3.png",
       price: "₡2,500",
     },
   ];
