@@ -67,24 +67,13 @@ export default function Products() {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-border">
-                {/* Product Images - Label and Bottle */}
-                <div className="grid grid-cols-2 gap-2 p-4 bg-gradient-to-br from-gray-50 to-gray-100 h-80">
-                  {/* Label */}
-                  <div className="flex items-center justify-center rounded-lg overflow-hidden bg-white">
-                    <img
-                      src={product.label}
-                      alt={`Etiqueta ${product.name}`}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  {/* Bottle */}
-                  <div className="flex items-center justify-center rounded-lg overflow-hidden bg-white">
-                    <img
-                      src={product.bottle}
-                      alt={product.name}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
-                  </div>
+                {/* Product Image - Label Only */}
+                <div className="flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 h-80">
+                  <img
+                    src={product.label}
+                    alt={`Etiqueta ${product.name}`}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
                 </div>
 
                 {/* Content */}
