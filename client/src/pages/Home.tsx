@@ -5,6 +5,7 @@ import Flavors from "@/components/Flavors";
 import Labels from "@/components/Labels";
 import Benefits from "@/components/Benefits";
 import DetailedIngredients from "@/components/DetailedIngredients";
+import SalesPoints from "@/components/SalesPoints";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -27,6 +28,7 @@ export default function Home() {
       <Labels />
       <Benefits />
       <DetailedIngredients />
+      <SalesPoints />
       <CTA />
       <Footer />
     </div>
