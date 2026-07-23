@@ -1,8 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
-import Flavors from "@/components/Flavors";
-import Labels from "@/components/Labels";
 import Benefits from "@/components/Benefits";
 import DetailedIngredients from "@/components/DetailedIngredients";
 import SalesPoints from "@/components/SalesPoints";
@@ -24,8 +22,6 @@ export default function Home() {
       <Header />
       <Hero />
       <Story />
-      <Flavors />
-      <Labels />
       <Benefits />
       <DetailedIngredients />
       <SalesPoints />
