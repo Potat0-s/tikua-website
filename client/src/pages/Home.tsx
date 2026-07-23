@@ -2,6 +2,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Story from "@/components/Story";
 import Flavors from "@/components/Flavors";
+import Labels from "@/components/Labels";
 import Benefits from "@/components/Benefits";
 import DetailedIngredients from "@/components/DetailedIngredients";
 import CTA from "@/components/CTA";
@@ -23,6 +24,7 @@ export default function Home() {
       <Hero />
       <Story />
       <Flavors />
+      <Labels />
       <Benefits />
       <DetailedIngredients />
       <CTA />
