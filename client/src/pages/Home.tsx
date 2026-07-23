@@ -1,8 +1,9 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import Story from "@/components/Story";
 import Flavors from "@/components/Flavors";
 import Benefits from "@/components/Benefits";
-import Ingredients from "@/components/Ingredients";
+import DetailedIngredients from "@/components/DetailedIngredients";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 
@@ -20,9 +21,10 @@ export default function Home() {
     <div className="min-h-screen bg-white">
       <Header />
       <Hero />
+      <Story />
       <Flavors />
       <Benefits />
-      <Ingredients />
+      <DetailedIngredients />
       <CTA />
       <Footer />
     </div>
