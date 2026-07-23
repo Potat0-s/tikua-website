@@ -33,7 +33,7 @@ export default function Benefits() {
   ];
 
   return (
-    <section id="beneficios" className="py-20 bg-gradient-to-b from-gray-50 to-white">
+    <section id="benefits-section" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">

@@ -1,7 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
+import { useRef } from "react";
 
 export default function Hero() {
+  const productsRef = useRef<HTMLElement>(null);
+  const benefitsRef = useRef<HTMLElement>(null);
+
+  const scrollToProducts = () => {
+    const productsSection = document.getElementById("products-section");
+    if (productsSection) {
+      productsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
+  const scrollToBenefits = () => {
+    const benefitsSection = document.getElementById("benefits-section");
+    if (benefitsSection) {
+      benefitsSection.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image */}
@@ -36,6 +54,7 @@ export default function Hero() {
         >
           <Button
             size="lg"
+            onClick={scrollToProducts}
             className="bg-primary hover:bg-primary/90 text-primary-foreground text-lg h-14"
           >
             Descubre Nuestros Sabores
@@ -43,6 +62,7 @@ export default function Hero() {
           </Button>
           <Button
             size="lg"
+            onClick={scrollToBenefits}
             variant="outline"
             className="bg-white/10 hover:bg-white/20 text-white border-white/30 text-lg h-14"
           >

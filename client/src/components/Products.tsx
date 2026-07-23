@@ -60,7 +60,7 @@ export default function Products() {
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-b from-white via-primary/5 to-white">
+    <section id="products-section" className="py-20 bg-gradient-to-b from-white via-primary/5 to-white">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
