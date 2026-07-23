@@ -1,10 +1,17 @@
 import { useCart } from "@/contexts/CartContext";
 import { X, Plus, Minus, ShoppingBag } from "lucide-react";
 import { useState } from "react";
+import { useLocation } from "wouter";
 
 export default function Cart() {
   const { items, removeItem, updateQuantity, total, clearCart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
+  const [, setLocation] = useLocation();
+
+  const handleCheckout = () => {
+    setIsOpen(false);
+    setLocation("/checkout");
+  };
 
   const itemCount = items.reduce((sum, item) => sum + item.quantity, 0);
 
@@ -141,7 +148,10 @@ export default function Cart() {
 
                 {/* Buttons */}
                 <div className="space-y-3">
-                  <button className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors">
+                  <button 
+                    onClick={handleCheckout}
+                    className="w-full bg-primary text-white font-bold py-3 rounded-lg hover:bg-primary/90 transition-colors"
+                  >
                     Proceder al Pago
                   </button>
                   <button
