@@ -5,7 +5,8 @@ interface Product {
   flavor: string;
   description: string;
   color: string;
-  image: string;
+  label: string;
+  bottle: string;
   price: string;
 }
 
@@ -17,7 +18,8 @@ export default function Products() {
       description:
         "Fruta endémica de Costa Rica con sabor único y refrescante. Rica en vitamina C y antioxidantes naturales.",
       color: "#FF6B35",
-      image: "/manus-storage/tikua_label_cas_vibrant_0f5b48fb.png",
+      label: "/manus-storage/tikua_label_cas_vibrant_0f5b48fb.png",
+      bottle: "/manus-storage/tikua_bottle_cas_single_526894c4.png",
       price: "₡2,500",
     },
     {
@@ -26,7 +28,8 @@ export default function Products() {
       description:
         "Cremosa y exótica. Rica en vitamina C y fibra natural para una hidratación nutritiva y deliciosa.",
       color: "#E91E63",
-      image: "/manus-storage/tikua_label_guanabana_vibrant_84a0d915.png",
+      label: "/manus-storage/tikua_label_guanabana_vibrant_84a0d915.png",
+      bottle: "/manus-storage/tikua_bottle_guanabana_single_d3162f5c.png",
       price: "₡2,500",
     },
     {
@@ -35,7 +38,8 @@ export default function Products() {
       description:
         "Con su forma de estrella y sabor único. Una experiencia tropical que refresca y energiza tu día.",
       color: "#9C27B0",
-      image: "/manus-storage/tikua_label_carambola_7ac6e036.png",
+      label: "/manus-storage/tikua_label_carambola_7ac6e036.png",
+      bottle: "/manus-storage/tikua_bottle_carambola_single_938f960a.png",
       price: "₡2,500",
     },
   ];
@@ -63,18 +67,24 @@ export default function Products() {
               style={{ animationDelay: `${index * 0.15}s` }}
             >
               <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-border">
-                {/* Product Image */}
-                <div className="relative h-80 overflow-hidden bg-gradient-to-br from-gray-50 to-gray-100">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  {/* Color Overlay */}
-                  <div
-                    className="absolute inset-0 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
-                    style={{ backgroundColor: product.color }}
-                  />
+                {/* Product Images - Label and Bottle */}
+                <div className="grid grid-cols-2 gap-2 p-4 bg-gradient-to-br from-gray-50 to-gray-100 h-80">
+                  {/* Label */}
+                  <div className="flex items-center justify-center rounded-lg overflow-hidden bg-white">
+                    <img
+                      src={product.label}
+                      alt={`Etiqueta ${product.name}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  {/* Bottle */}
+                  <div className="flex items-center justify-center rounded-lg overflow-hidden bg-white">
+                    <img
+                      src={product.bottle}
+                      alt={product.name}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  </div>
                 </div>
 
                 {/* Content */}
