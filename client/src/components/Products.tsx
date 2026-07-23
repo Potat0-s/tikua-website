@@ -1,4 +1,6 @@
 import { ShoppingCart, Leaf } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { toast } from "sonner";
 
 interface Product {
   name: string;
@@ -11,6 +13,19 @@ interface Product {
 }
 
 export default function Products() {
+  const { addItem } = useCart();
+
+  const handleAddToCart = (product: Product) => {
+    addItem({
+      id: product.flavor,
+      name: product.name,
+      flavor: product.flavor,
+      price: parseInt(product.price.replace(/[^0-9]/g, "")),
+      color: product.color,
+    });
+    toast.success(`${product.name} agregado al carrito`);
+  };
+
   const products: Product[] = [
     {
       name: "Tikua Cas",
@@ -111,6 +126,7 @@ export default function Products() {
                       {product.price}
                     </span>
                     <button
+                      onClick={() => handleAddToCart(product)}
                       className="p-3 rounded-lg transition-all duration-300"
                       style={{
                         backgroundColor: `${product.color}15`,
