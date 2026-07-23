@@ -29,7 +29,7 @@ export default function Products() {
         "Cremosa y exótica. Rica en vitamina C y fibra natural para una hidratación nutritiva y deliciosa.",
       color: "#E91E63",
       label: "/manus-storage/tikua_label_guanabana_vibrant_84a0d915.png",
-      bottle: "/manus-storage/tikua_bottle_guanabana_correct_da991001.png",
+      bottle: "/manus-storage/tikua_bottle_guanabana_final_63173c09.png",
       price: "₡2,500",
     },
     {
