@@ -6,10 +6,18 @@ export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
-    { label: "Sabores", href: "#sabores" },
-    { label: "Beneficios", href: "#beneficios" },
-    { label: "Ingredientes", href: "#ingredientes" },
+    { label: "Sabores", href: "products-section" },
+    { label: "Beneficios", href: "benefits-section" },
+    { label: "Ingredientes", href: "ingredients-section" },
   ];
+
+  const handleNavClick = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+      setIsOpen(false);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
@@ -29,13 +37,13 @@ export default function Header() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-8">
           {navItems.map((item) => (
-            <a
+            <button
               key={item.label}
-              href={item.href}
-              className="text-foreground hover:text-primary transition-colors duration-200"
+              onClick={() => handleNavClick(item.href)}
+              className="text-foreground hover:text-primary transition-colors duration-200 cursor-pointer font-medium"
             >
               {item.label}
-            </a>
+            </button>
           ))}
         </nav>
 
@@ -61,14 +69,13 @@ export default function Header() {
         <nav className="md:hidden border-t border-border bg-white">
           <div className="container py-4 flex flex-col gap-4">
             {navItems.map((item) => (
-              <a
+              <button
                 key={item.label}
-                href={item.href}
-                className="text-foreground hover:text-primary transition-colors"
-                onClick={() => setIsOpen(false)}
+                onClick={() => handleNavClick(item.href)}
+                className="text-foreground hover:text-primary transition-colors text-left cursor-pointer font-medium"
               >
                 {item.label}
-              </a>
+              </button>
             ))}
             <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
               Comprar Ahora

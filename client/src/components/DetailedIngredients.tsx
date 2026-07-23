@@ -47,7 +47,7 @@ export default function DetailedIngredients() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section id="ingredients-section" className="py-20 bg-white">
       <div className="container">
         {/* Header */}
         <div className="text-center mb-16">
