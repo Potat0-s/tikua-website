@@ -150,6 +150,36 @@ export default function Products() {
           ))}
         </div>
 
+        {/* Promotional Gallery Section */}
+        <div className="mt-20 pt-12 border-t border-border">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl md:text-4xl font-display font-bold text-foreground mb-4">
+              Galería Promocional
+            </h3>
+            <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+              Descubre nuestros productos en diferentes contextos
+            </p>
+          </div>
+          
+          {/* Gallery with Animation */}
+          <div className="relative overflow-hidden rounded-2xl shadow-2xl mb-12">
+            <img
+              src="/manus-storage/tikua_bottles_guanabana_corrected_a8f3c2e1.png"
+              alt="Galería Promocional Tikua"
+              className="w-full h-auto object-cover animate-zoom-in-slow"
+            />
+            {/* Overlay with CTA */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent flex items-end justify-center pb-12 opacity-0 hover:opacity-100 transition-opacity duration-300">
+              <button
+                onClick={() => document.getElementById('products-section')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-8 py-3 bg-primary text-white font-bold rounded-lg hover:bg-primary/90 transition-all duration-300 transform hover:scale-105"
+              >
+                Ver Productos
+              </button>
+            </div>
+          </div>
+        </div>
+
         {/* Features Section */}
         <div className="grid md:grid-cols-3 gap-6 mt-16 pt-12 border-t border-border">
           <div className="text-center">
