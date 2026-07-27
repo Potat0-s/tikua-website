@@ -83,11 +83,11 @@ export default function Products() {
             >
               <div className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-300 border border-border">
                 {/* Product Image - Label Only */}
-                <div className="flex items-center justify-center p-4 bg-gradient-to-br from-gray-50 to-gray-100 h-80">
+                <div className="flex items-center justify-center p-6 bg-gradient-to-br from-gray-50 to-gray-100 h-96">
                   <img
                     src={product.label}
                     alt={`Etiqueta ${product.name}`}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-300"
                   />
                 </div>
 
