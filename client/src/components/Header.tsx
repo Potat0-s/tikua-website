@@ -25,13 +25,10 @@ export default function Header() {
         {/* Logo */}
         <div className="flex items-center gap-2">
           <img
-            src="/manus-storage/tikua_logo_dfffeb1a.png"
+            src="/manus-storage/ChatGPTImage8jul2026,20_46_57_8c2d1804.png"
             alt="Tikua"
-            className="w-10 h-10"
+            className="w-12 h-12"
           />
-          <span className="font-display font-bold text-xl text-primary">
-            Tikua
-          </span>
         </div>
 
         {/* Desktop Navigation */}
