@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { MapPin, Phone, Clock, MapIcon, Navigation } from "lucide-react";
-import { MapView, Marker } from "./Map";
+import { MapView, Marker } from "./MapLeaflet";
 
 interface SalesPoint {
   id: string;
