@@ -163,6 +163,7 @@ export default function SalesPoints() {
     lng: point.lng,
     title: point.name,
     info: `${point.address}<br/>${point.phone}<br/>${point.hours}`,
+    type: point.type as "supermarket" | "gym" | "health" | "cafe",
   }));
 
   const handleMarkerClick = (marker: Marker) => {

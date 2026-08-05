@@ -8,6 +8,7 @@ interface Marker {
   lng: number;
   title: string;
   info: string;
+  type?: "supermarket" | "gym" | "health" | "cafe";
 }
 
 interface MapViewProps {
@@ -20,6 +21,22 @@ interface MapViewProps {
 }
 
 export { Marker };
+
+// Helper function to create marker color based on type
+export function getMarkerColor(type?: string): string {
+  switch (type) {
+    case "supermarket":
+      return "#4ECDC4";
+    case "gym":
+      return "#95E1D3";
+    case "health":
+      return "#A8E6CF";
+    case "cafe":
+      return "#FFD3B6";
+    default:
+      return "#FF6B6B";
+  }
+}
 
 export function MapView({
   className,
@@ -59,9 +76,43 @@ export function MapView({
     markersRef.current.forEach((marker) => marker.remove());
     markersRef.current = [];
 
-    // Add new markers
+    // Add new markers with custom colors based on type
     markers.forEach((markerData) => {
+      // Determine marker color based on type
+      let markerColor = "#FF6B6B"; // default red
+      if (markerData.type === "supermarket") markerColor = "#4ECDC4"; // teal for supermarket
+      else if (markerData.type === "gym") markerColor = "#95E1D3"; // light green for gym
+      else if (markerData.type === "health") markerColor = "#A8E6CF"; // green for health
+      else if (markerData.type === "cafe") markerColor = "#FFD3B6"; // orange for cafe
+
+      // Create custom HTML for marker
+      const markerHTML = `
+        <div style="
+          background-color: ${markerColor};
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: 2px solid white;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+          color: white;
+          font-weight: bold;
+          font-size: 14px;
+        ">
+          📍
+        </div>
+      `;
+
+      const markerElement = L.divIcon({
+        html: markerHTML,
+        iconSize: [30, 30],
+        className: "custom-marker",
+      });
+
       const marker = L.marker([markerData.lat, markerData.lng], {
+        icon: markerElement,
         title: markerData.title,
       }).addTo(map.current!);
 
