@@ -89,6 +89,28 @@ export default function SalesPoints() {
       lng: -83.7333,
       city: "San Isidro",
     },
+    {
+      id: "7",
+      name: "Supermercado La Vieja Estacion",
+      address: "Calle 2, Limon, Costa Rica",
+      phone: "+506 2758-1234",
+      hours: "Lun-Dom: 7:00 AM - 9:00 PM",
+      type: "supermarket",
+      lat: 9.9933,
+      lng: -83.0333,
+      city: "Limon",
+    },
+    {
+      id: "8",
+      name: "Supermercado Central Puntarenas",
+      address: "Avenida Central, Puntarenas, Costa Rica",
+      phone: "+506 2661-5555",
+      hours: "Lun-Dom: 8:00 AM - 8:00 PM",
+      type: "supermarket",
+      lat: 9.9789,
+      lng: -84.8361,
+      city: "Puntarenas",
+    },
   ];
 
   const typeColors: Record<string, { bg: string; text: string; label: string }> =
