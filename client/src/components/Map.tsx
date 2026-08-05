@@ -86,8 +86,14 @@ declare global {
   }
 }
 
-const API_KEY = import.meta.env.VITE_FRONTEND_FORGE_API_KEY;
+// Use the Forge API key which includes Google Maps access
+const API_KEY = import.meta.env.VITE_FRONTEND_FORGE_API_KEY || "";
 const MAPS_API_URL = "https://maps.googleapis.com";
+
+// Log for debugging
+if (typeof window !== 'undefined') {
+  console.log("API Key available:", !!API_KEY);
+}
 
 function loadMapScript() {
   return new Promise(resolve => {
