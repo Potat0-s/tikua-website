@@ -33,8 +33,8 @@ export default function Products() {
       description:
         "Fruta endémica de Costa Rica con sabor único y refrescante. Rica en vitamina C y antioxidantes naturales.",
       color: "#FF6B35",
-      label: "/manus-storage/tikua_label_cas_individual_b2b07845.png", // Cas - naranja con fruta verde
-      bottle: "/manus-storage/tikua_bottle_cas_correct_d46065cf.png",
+      label: "/manus-storage/tikua_label_guanabana_individual_7b6cc6f4.png", // Cas - magenta con fruta blanca
+      bottle: "/manus-storage/tikua_bottle_guanabana_final_63173c09.png",
       price: "₡840",
     },
     {
@@ -43,8 +43,8 @@ export default function Products() {
       description:
         "Cremosa y exótica. Rica en vitamina C y fibra natural para una hidratación nutritiva y deliciosa.",
       color: "#E91E63",
-      label: "/manus-storage/tikua_label_guanabana_individual_7b6cc6f4.png", // Guanábana - magenta con fruta blanca
-      bottle: "/manus-storage/tikua_bottle_guanabana_final_63173c09.png",
+      label: "/manus-storage/tikua_label_carambola_individual_ec0d7c7b.png", // Guanábana - púrpura con fruta amarilla
+      bottle: "/manus-storage/tikua_bottle_carambola_correct_98bac8d3.png",
       price: "₡840",
     },
     {
@@ -53,8 +53,8 @@ export default function Products() {
       description:
         "Con su forma de estrella y sabor único. Una experiencia tropical que refresca y energiza tu día.",
       color: "#9C27B0",
-      label: "/manus-storage/tikua_label_carambola_individual_ec0d7c7b.png", // Carambola - púrpura con fruta amarilla
-      bottle: "/manus-storage/tikua_bottle_carambola_correct_98bac8d3.png",
+      label: "/manus-storage/tikua_label_cas_individual_b2b07845.png", // Carambola - naranja con fruta verde
+      bottle: "/manus-storage/tikua_bottle_cas_correct_d46065cf.png",
       price: "₡840",
     },
   ];
