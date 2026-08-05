@@ -35,7 +35,7 @@ export default function Products() {
       color: "#FF6B35",
       label: "/manus-storage/tikua_label_cas_new_1d357f02.png",
       bottle: "/manus-storage/tikua_bottle_cas_correct_d46065cf.png",
-      price: "₡2,500",
+      price: "₡840",
     },
     {
       name: "Tikua Guanábana",
@@ -45,7 +45,7 @@ export default function Products() {
       color: "#E91E63",
       label: "/manus-storage/tikua_label_guanabana_new_9f21fa92.png",
       bottle: "/manus-storage/tikua_bottle_guanabana_final_63173c09.png",
-      price: "₡2,500",
+      price: "₡840",
     },
     {
       name: "Tikua Carambola",
@@ -55,7 +55,7 @@ export default function Products() {
       color: "#9C27B0",
       label: "/manus-storage/tikua_label_carambola_new_5955948a.png",
       bottle: "/manus-storage/tikua_bottle_carambola_correct_98bac8d3.png",
-      price: "₡2,500",
+      price: "₡840",
     },
   ];
 
