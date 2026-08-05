@@ -80,6 +80,6 @@ export function MapView({
   }, [initialCenter, initialZoom, markers, onMapReady, onMarkerClick]);
 
   return (
-    <div ref={mapContainer} className={cn("w-full h-[500px]", className)} />
+    <div ref={mapContainer} className={cn("w-full h-[300px]", className)} />
   );
 }
