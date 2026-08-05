@@ -94,6 +94,13 @@ const MAPS_PROXY_URL = `${FORGE_BASE_URL}/v1/maps/proxy`;
 
 function loadMapScript() {
   return new Promise(resolve => {
+    // Check if API key is available
+    if (!API_KEY) {
+      console.warn("Google Maps API key not configured");
+      resolve(null);
+      return;
+    }
+
     // Check if Google Maps is already loaded
     if (window.google && window.google.maps) {
       resolve(null);
@@ -145,6 +152,11 @@ export function MapView({
     await loadMapScript();
     if (!mapContainer.current) {
       console.error("Map container not found");
+      return;
+    }
+    if (!window.google || !window.google.maps) {
+      console.warn("Google Maps not available");
+      mapContainer.current.innerHTML = '<div class="w-full h-full flex items-center justify-center bg-gray-100 text-gray-600">Mapa no disponible</div>';
       return;
     }
     map.current = new window.google.maps.Map(mapContainer.current, {
