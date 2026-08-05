@@ -129,18 +129,31 @@ function loadMapScript() {
   });
 }
 
+interface Marker {
+  lat: number;
+  lng: number;
+  title: string;
+  info: string;
+}
+
 interface MapViewProps {
   className?: string;
   initialCenter?: google.maps.LatLngLiteral;
   initialZoom?: number;
+  markers?: Marker[];
   onMapReady?: (map: google.maps.Map) => void;
+  onMarkerClick?: (marker: Marker) => void;
 }
+
+export { Marker };
 
 export function MapView({
   className,
   initialCenter = { lat: 37.7749, lng: -122.4194 },
   initialZoom = 12,
+  markers = [],
   onMapReady,
+  onMarkerClick,
 }: MapViewProps) {
   const mapContainer = useRef<HTMLDivElement>(null);
   const map = useRef<google.maps.Map | null>(null);
@@ -165,6 +178,37 @@ export function MapView({
       streetViewControl: true,
       mapId: "DEMO_MAP_ID",
     });
+    
+    // Add markers
+    markers.forEach((markerData) => {
+      const infoWindow = new window.google.maps.InfoWindow({
+        content: `<div class="p-3"><strong>${markerData.title}</strong><p class="text-sm mt-1">${markerData.info}</p></div>`,
+      });
+      
+      const marker = new window.google.maps.marker.AdvancedMarkerElement({
+        map: map.current,
+        position: { lat: markerData.lat, lng: markerData.lng },
+        title: markerData.title,
+      });
+      
+      marker.addListener("click", () => {
+        // Close all other info windows
+        document.querySelectorAll(".gm-ui-hover-effect").forEach(el => {
+          const parent = el.closest(".gm-style-iw");
+          if (parent) parent.remove();
+        });
+        
+        infoWindow.open({
+          anchor: marker,
+          map: map.current,
+        });
+        
+        if (onMarkerClick) {
+          onMarkerClick(markerData);
+        }
+      });
+    });
+    
     if (onMapReady) {
       onMapReady(map.current);
     }
@@ -172,7 +216,7 @@ export function MapView({
 
   useEffect(() => {
     init();
-  }, [init]);
+  }, [init, markers, onMarkerClick]);
 
   return (
     <div ref={mapContainer} className={cn("w-full h-[500px]", className)} />

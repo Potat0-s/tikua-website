@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { MapPin, Phone, Clock, MapIcon } from "lucide-react";
-import { MapView } from "./Map";
+import { useState, useEffect } from "react";
+import { MapPin, Phone, Clock, MapIcon, Navigation } from "lucide-react";
+import { MapView, Marker } from "./Map";
 
 interface SalesPoint {
   id: string;
@@ -14,16 +14,13 @@ interface SalesPoint {
   city: string;
 }
 
-interface Marker {
-  lat: number;
-  lng: number;
-  title: string;
-  info: string;
-}
-
 export default function SalesPoints() {
   const [selectedPoint, setSelectedPoint] = useState<SalesPoint | null>(null);
   const [mapReady, setMapReady] = useState(false);
+  const [userLocation, setUserLocation] = useState<{ lat: number; lng: number } | null>(null);
+  const [nearestPoint, setNearestPoint] = useState<SalesPoint | null>(null);
+  const [mapCenter, setMapCenter] = useState<{ lat: number; lng: number }>({ lat: 9.8277, lng: -84.2062 });
+  const [mapZoom, setMapZoom] = useState(8);
 
   const salesPoints: SalesPoint[] = [
     {
@@ -114,6 +111,67 @@ export default function SalesPoints() {
     setMapReady(true);
   };
 
+  // Get user's geolocation
+  useEffect(() => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setUserLocation({ lat: latitude, lng: longitude });
+          setMapCenter({ lat: latitude, lng: longitude });
+          setMapZoom(12);
+          
+          // Find nearest point
+          let nearest = salesPoints[0];
+          let minDistance = calculateDistance(latitude, longitude, nearest.lat, nearest.lng);
+          
+          salesPoints.forEach((point) => {
+            const distance = calculateDistance(latitude, longitude, point.lat, point.lng);
+            if (distance < minDistance) {
+              minDistance = distance;
+              nearest = point;
+            }
+          });
+          
+          setNearestPoint(nearest);
+        },
+        (error) => {
+          console.warn("Geolocation error:", error);
+        }
+      );
+    }
+  }, []);
+
+  // Calculate distance between two coordinates (Haversine formula)
+  const calculateDistance = (lat1: number, lon1: number, lat2: number, lon2: number): number => {
+    const R = 6371; // Earth's radius in km
+    const dLat = ((lat2 - lat1) * Math.PI) / 180;
+    const dLon = ((lon2 - lon1) * Math.PI) / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos((lat1 * Math.PI) / 180) *
+        Math.cos((lat2 * Math.PI) / 180) *
+        Math.sin(dLon / 2) *
+        Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  };
+
+  // Convert sales points to map markers
+  const mapMarkers: Marker[] = salesPoints.map((point) => ({
+    lat: point.lat,
+    lng: point.lng,
+    title: point.name,
+    info: `${point.address}<br/>${point.phone}<br/>${point.hours}`,
+  }));
+
+  const handleMarkerClick = (marker: Marker) => {
+    const point = salesPoints.find((p) => p.name === marker.title);
+    if (point) {
+      setSelectedPoint(point);
+    }
+  };
+
   return (
     <section className="py-20 bg-white">
       <div className="container">
@@ -126,6 +184,16 @@ export default function SalesPoints() {
             Encuentra Tikua en los mejores puntos de venta de Costa Rica.
             Disponible en supermercados, gimnasios, tiendas de salud y cafés.
           </p>
+          
+          {/* Nearest Point Info */}
+          {nearestPoint && (
+            <div className="mt-6 inline-block bg-primary/10 border border-primary/30 rounded-lg p-4">
+              <div className="flex items-center gap-2 text-primary font-medium">
+                <Navigation className="w-4 h-4" />
+                <span>Punto más cercano: <strong>{nearestPoint.name}</strong></span>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Map and List Container */}
@@ -134,9 +202,11 @@ export default function SalesPoints() {
           <div className="md:col-span-2">
             <div className="rounded-xl overflow-hidden shadow-lg h-96 md:h-full min-h-96">
               <MapView
-                initialCenter={{ lat: 9.8277, lng: -84.2062 }}
-                initialZoom={8}
+                initialCenter={mapCenter}
+                initialZoom={mapZoom}
+                markers={mapMarkers}
                 onMapReady={handleMapReady}
+                onMarkerClick={handleMarkerClick}
               />
             </div>
           </div>
@@ -146,7 +216,11 @@ export default function SalesPoints() {
             {salesPoints.map((point) => (
               <div
                 key={point.id}
-                onClick={() => setSelectedPoint(point)}
+                onClick={() => {
+                  setSelectedPoint(point);
+                  setMapCenter({ lat: point.lat, lng: point.lng });
+                  setMapZoom(14);
+                }}
                 className={`p-4 rounded-lg border-2 cursor-pointer transition-all duration-300 ${
                   selectedPoint?.id === point.id
                     ? "border-primary bg-primary/5"
